@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Age Calculator</title>
+<style>
+body{font-family:Arial;background:#fdf2f8;padding:30px}
+main{max-width:450px;margin:40px auto;background:white;padding:30px;border-radius:18px;text-align:center}
+input{width:100%;padding:14px;box-sizing:border-box;border:1px solid #f9a8d4;border-radius:8px;margin:20px 0}
+button{width:100%;background:#db2777;color:white;padding:14px;border:0;border-radius:8px;cursor:pointer}
+#result{background:#fce7f3;padding:20px;border-radius:10px;margin-top:20px;line-height:2}
+</style>
+</head>
+<body>
+<main>
+<h1>Age Calculator</h1>
+<p>Discover your exact age.</p>
+<label>Select your date of birth</label>
+<input type="date" id="birth">
+<button onclick="calculateAge()">Calculate Age</button>
+<div id="result">Your age will appear here.</div>
+</main>
+<script>
+const today=new Date();
+const localDate=today.getFullYear()+"-"+String(today.getMonth()+1).padStart(2,"0")+"-"+String(today.getDate()).padStart(2,"0");
+document.getElementById("birth").max=localDate;
+function calculateAge(){
+ const value=document.getElementById("birth").value;
+ const result=document.getElementById("result");
+ if(!value||value>localDate){
+  result.textContent="Please enter a valid birth date.";
+  return;
+ }
+ const [y,m,d]=value.split("-").map(Number);
+ const now=new Date();
+ let years=now.getFullYear()-y;
+ if(now.getMonth()+1<m||
+ (now.getMonth()+1===m&&now.getDate()<d)){
+  years--;
+ }
+ const start=Date.UTC(y,m-1,d);
+ const end=Date.UTC(now.getFullYear(),now.getMonth(),now.getDate());
+ const totalDays=Math.floor((end-start)/86400000);
+ result.textContent="Completed Age: "+years+" years | Total Days: "+totalDays.toLocaleString();
+}
+</script>
+</body>
+</html>
