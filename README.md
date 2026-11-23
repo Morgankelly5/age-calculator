@@ -1,23 +1,28 @@
-# Age Calculator
+## Age Calculation Guide
 
-A date-based application for calculating age.
+This application calculates age
+using a selected date of birth.
 
-## Features
+### Calculation Details
 
-- Birth date selection
-- Completed years
-- Total elapsed days
+- Years
+- Months
+- Days
+- Date-based age calculation
 
-## How to Use
+### How to Use
 
-Select your birth date and click Calculate Age.
+1. Open the age calculator.
+2. Select a valid date of birth.
+3. Start the calculation.
+4. Review the calculated age.
 
-## Technologies
+### Input Validation
 
-- HTML
-- CSS
-- JavaScript
+The application should reject
+invalid or future birth dates.
 
-## Running Locally
+### Maintenance
 
-Open `index.html` in a modern web browser.
+Review date calculations carefully
+to handle leap years correctly.
