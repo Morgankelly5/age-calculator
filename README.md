@@ -26,3 +26,12 @@ invalid or future birth dates.
 
 Review date calculations carefully
 to handle leap years correctly.
+## Manual Testing Checklist
+
+- [ ] Test a known birth date and verify completed years.
+- [ ] Check a birthday that has not occurred this year.
+- [ ] Reject a future or otherwise invalid birth date.
+
+### Test Notes
+
+Record the observed result and any reproducible issue after running the tests.
